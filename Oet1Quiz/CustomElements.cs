@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ZsoltCustomElements
 {
-    class ResizeableRadioButton : RadioButton
+    public class ResizeableRadioButton : RadioButton
     {
         public Color _backgroundOfPanel = Color.Red;
 

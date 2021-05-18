@@ -60,6 +60,7 @@
     <Compile Include="CustomElements.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="QuestionManager.cs" />
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>

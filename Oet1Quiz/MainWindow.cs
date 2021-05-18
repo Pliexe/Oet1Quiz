@@ -8,17 +8,29 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oet1Quiz.questionMng;
 
 namespace Oet1Quiz
 {
     public partial class MainWindow : Form
     {
+        int points = 0;
+
+        QuestionManager questionManager = new QuestionManager();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            questionManager.Connected += (object sender, EventArgs e) =>
+            {
+                button_start.Enabled = true;
+            };
+
+            questionManager.Initialize(dataGridView2);
         }
 
-        // Drag form
+        /*// Drag form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -29,7 +41,7 @@ namespace Oet1Quiz
         {
             ReleaseCapture();
             SendMessage(Handle, 0x112, 0xf012, 0);
-        }
+        }*/
 
         private void header_close_Click(object sender, EventArgs e)
         {
@@ -51,6 +63,18 @@ namespace Oet1Quiz
         {
             question_Panel.Visible = true;
             mainMenu_panel.Visible = false;
+        }
+
+        private void button_start_Click(object sender, EventArgs e)
+        {
+            Question question = questionManager.questions[0];
+            question_label.Text = question.question;
+
+            radioButton_question1.Text = question.anwser1;
+            radioButton_question2.Text = question.anwser2;
+            radioButton_question3.Text = question.anwser3;
+
+            SwitchToQuestionPanel();
         }
     }
 }
