@@ -73,8 +73,8 @@ namespace Oet1Quiz
             this.question_Panel.BackColor = System.Drawing.Color.Transparent;
             this.question_Panel.CausesValidation = false;
             this.question_Panel.Controls.Add(this.radiobutton_q_panel);
-            this.question_Panel.Controls.Add(this.checkbox_q_panel);
             this.question_Panel.Controls.Add(this.question_label);
+            this.question_Panel.Controls.Add(this.checkbox_q_panel);
             this.question_Panel.Controls.Add(this.roundedButton1);
             this.question_Panel.ForeColor = System.Drawing.Color.Transparent;
             this.question_Panel.Location = new System.Drawing.Point(0, 0);
@@ -301,6 +301,7 @@ namespace Oet1Quiz
             this.roundedButton1.Text = "Következő";
             this.roundedButton1.TextColor = System.Drawing.Color.Black;
             this.roundedButton1.UseVisualStyleBackColor = false;
+            this.roundedButton1.Click += new System.EventHandler(this.roundedButton1_Click);
             // 
             // MainWindow
             // 

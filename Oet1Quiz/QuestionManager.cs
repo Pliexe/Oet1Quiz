@@ -75,12 +75,18 @@ namespace Oet1Quiz.questionMng
 
                 questions = new Question[table.Rows.Count];
 
-
                 for (int i = 0; i < questions.Length; i++)
-                    questions[i] = new Question(table.Rows[i].ItemArray.ElementAt(1).ToString(), table.Rows[i].ItemArray.ElementAt(2).ToString(), table.Rows[i].ItemArray.ElementAt(3).ToString(), table.Rows[i].ItemArray.ElementAt(4).ToString(), int.Parse(table.Rows[i].ItemArray.ElementAt(5).ToString()));
+                {
+                    /*Console.WriteLine($"{table.Rows[i].ItemArray.ElementAt(0)}: {table.Rows[i].ItemArray.ElementAt(1)}, {table.Rows[i].ItemArray.ElementAt(5)}");*/
+                    questions[i] = new Question(table.Rows[i].ItemArray.ElementAt(1).ToString(), table.Rows[i].ItemArray.ElementAt(2).ToString(), table.Rows[i].ItemArray.ElementAt(3).ToString(), table.Rows[i].ItemArray.ElementAt(4).ToString(), int.Parse(table.Rows[i].ItemArray.ElementAt(5).ToString())) { id = int.Parse(table.Rows[i].ItemArray.ElementAt(0).ToString()) };
+                }
 
                 connection.Close();
 
+                foreach (Question question in questions)
+                {
+                    Console.WriteLine($"{question.id}");
+                }
             }
             else
             {

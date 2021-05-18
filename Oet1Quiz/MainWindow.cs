@@ -15,12 +15,15 @@ namespace Oet1Quiz
     public partial class MainWindow : Form
     {
         int points = 0;
+        int currentQuestion = 0;
 
         QuestionManager questionManager = new QuestionManager();
 
         public MainWindow()
         {
             InitializeComponent();
+
+            dataGridView2.ForeColor = Color.Black;
 
             questionManager.Connected += (object sender, EventArgs e) =>
             {
@@ -65,16 +68,59 @@ namespace Oet1Quiz
             mainMenu_panel.Visible = false;
         }
 
-        private void button_start_Click(object sender, EventArgs e)
+        void SetupQuestion(Question question)
         {
-            Question question = questionManager.questions[0];
             question_label.Text = question.question;
 
             radioButton_question1.Text = question.anwser1;
             radioButton_question2.Text = question.anwser2;
             radioButton_question3.Text = question.anwser3;
+        }
+
+        void ResetSelections()
+        {
+            radioButton_question1.Checked = false;
+            radioButton_question2.Checked = false;
+            radioButton_question3.Checked = false;
+        }
+
+        private void button_start_Click(object sender, EventArgs e)
+        {
+            SetupQuestion(questionManager.questions[0]);
 
             SwitchToQuestionPanel();
+        }
+
+        private void roundedButton1_Click(object sender, EventArgs e)
+        {
+            Question question = questionManager.questions[currentQuestion];
+
+            int selected;
+
+            if (radioButton_question1.Checked) selected = 1;
+            else if (radioButton_question2.Checked) selected = 2;
+            else if (radioButton_question3.Checked) selected = 3;
+            else {
+                MessageBox.Show("Returned");
+                return;
+            };
+
+            if(question.isCorrect(selected))
+            {
+                currentQuestion++;
+                if(currentQuestion < questionManager.questions.Length)
+                {
+                    ResetSelections();
+                    SetupQuestion(questionManager.questions[currentQuestion]);
+                } else
+                {
+                    currentQuestion = 0;
+                    SwitchToMainMenu();
+                }
+            } else
+            {
+                MessageBox.Show("Rosz valasz");
+            }
         }
     }
 }
