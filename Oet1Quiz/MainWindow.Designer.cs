@@ -32,12 +32,21 @@ namespace Oet1Quiz
             this.mainMenu_panel = new System.Windows.Forms.Panel();
             this.question_Panel = new System.Windows.Forms.Panel();
             this.radiobutton_q_panel = new System.Windows.Forms.Panel();
-            this.checkbox_q_panel = new System.Windows.Forms.Panel();
             this.question_label = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.checkbox_q_panel = new System.Windows.Forms.Panel();
+            this.correct_panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.smilePictureBox = new System.Windows.Forms.PictureBox();
+            this.incorrect_panel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.sadPictureBox = new System.Windows.Forms.PictureBox();
+            this.categories_panel = new System.Windows.Forms.Panel();
             this.quit_btn = new ZsoltCustomElements.RoundedButton();
             this.configure_btn = new ZsoltCustomElements.RoundedButton();
             this.button_start = new ZsoltCustomElements.RoundedButton();
+            this.next_button = new ZsoltCustomElements.RoundedButton();
+            this.back_button = new ZsoltCustomElements.RoundedButton();
+            this.roundedButton1 = new ZsoltCustomElements.RoundedButton();
             this.radioButton_question3 = new ZsoltCustomElements.ResizeableRadioButton();
             this.radioButton_question2 = new ZsoltCustomElements.ResizeableRadioButton();
             this.radioButton_question1 = new ZsoltCustomElements.ResizeableRadioButton();
@@ -46,19 +55,21 @@ namespace Oet1Quiz
             this.resizeableCheckbox5 = new ZsoltCustomElements.ResizeableCheckbox();
             this.resizeableCheckbox3 = new ZsoltCustomElements.ResizeableCheckbox();
             this.resizeableCheckbox4 = new ZsoltCustomElements.ResizeableCheckbox();
-            this.roundedButton1 = new ZsoltCustomElements.RoundedButton();
             this.mainMenu_panel.SuspendLayout();
             this.question_Panel.SuspendLayout();
             this.radiobutton_q_panel.SuspendLayout();
             this.checkbox_q_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.correct_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.smilePictureBox)).BeginInit();
+            this.incorrect_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sadPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenu_panel
             // 
             this.mainMenu_panel.BackColor = System.Drawing.Color.Transparent;
             this.mainMenu_panel.CausesValidation = false;
-            this.mainMenu_panel.Controls.Add(this.dataGridView2);
+            this.mainMenu_panel.Controls.Add(this.categories_panel);
             this.mainMenu_panel.Controls.Add(this.quit_btn);
             this.mainMenu_panel.Controls.Add(this.configure_btn);
             this.mainMenu_panel.Controls.Add(this.button_start);
@@ -75,15 +86,16 @@ namespace Oet1Quiz
             this.question_Panel.Controls.Add(this.radiobutton_q_panel);
             this.question_Panel.Controls.Add(this.question_label);
             this.question_Panel.Controls.Add(this.checkbox_q_panel);
-            this.question_Panel.Controls.Add(this.roundedButton1);
             this.question_Panel.ForeColor = System.Drawing.Color.Transparent;
             this.question_Panel.Location = new System.Drawing.Point(0, 0);
             this.question_Panel.Name = "question_Panel";
             this.question_Panel.Size = new System.Drawing.Size(1050, 651);
             this.question_Panel.TabIndex = 5;
+            this.question_Panel.Visible = false;
             // 
             // radiobutton_q_panel
             // 
+            this.radiobutton_q_panel.Controls.Add(this.roundedButton1);
             this.radiobutton_q_panel.Controls.Add(this.radioButton_question3);
             this.radiobutton_q_panel.Controls.Add(this.radioButton_question2);
             this.radiobutton_q_panel.Controls.Add(this.radioButton_question1);
@@ -91,6 +103,16 @@ namespace Oet1Quiz
             this.radiobutton_q_panel.Name = "radiobutton_q_panel";
             this.radiobutton_q_panel.Size = new System.Drawing.Size(1026, 464);
             this.radiobutton_q_panel.TabIndex = 14;
+            // 
+            // question_label
+            // 
+            this.question_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.question_label.Location = new System.Drawing.Point(12, 41);
+            this.question_label.Name = "question_label";
+            this.question_label.Size = new System.Drawing.Size(1026, 97);
+            this.question_label.TabIndex = 12;
+            this.question_label.Text = "Question?";
+            this.question_label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // checkbox_q_panel
             // 
@@ -106,23 +128,84 @@ namespace Oet1Quiz
             this.checkbox_q_panel.TabIndex = 13;
             this.checkbox_q_panel.Visible = false;
             // 
-            // question_label
+            // correct_panel
             // 
-            this.question_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.question_label.Location = new System.Drawing.Point(12, 41);
-            this.question_label.Name = "question_label";
-            this.question_label.Size = new System.Drawing.Size(1026, 97);
-            this.question_label.TabIndex = 12;
-            this.question_label.Text = "Question?";
-            this.question_label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.correct_panel.BackColor = System.Drawing.Color.Transparent;
+            this.correct_panel.CausesValidation = false;
+            this.correct_panel.Controls.Add(this.next_button);
+            this.correct_panel.Controls.Add(this.label1);
+            this.correct_panel.Controls.Add(this.smilePictureBox);
+            this.correct_panel.ForeColor = System.Drawing.Color.Transparent;
+            this.correct_panel.Location = new System.Drawing.Point(0, 0);
+            this.correct_panel.Name = "correct_panel";
+            this.correct_panel.Size = new System.Drawing.Size(1050, 651);
+            this.correct_panel.TabIndex = 5;
+            this.correct_panel.Visible = false;
             // 
-            // dataGridView2
+            // label1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(291, 86);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(755, 549);
-            this.dataGridView2.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.label1.Location = new System.Drawing.Point(412, 363);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(229, 39);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Pontos válasz";
+            // 
+            // smilePictureBox
+            // 
+            this.smilePictureBox.Image = global::Oet1Quiz.Properties.Resources.smile;
+            this.smilePictureBox.ImageLocation = "";
+            this.smilePictureBox.InitialImage = null;
+            this.smilePictureBox.Location = new System.Drawing.Point(412, 89);
+            this.smilePictureBox.Name = "smilePictureBox";
+            this.smilePictureBox.Size = new System.Drawing.Size(234, 236);
+            this.smilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.smilePictureBox.TabIndex = 0;
+            this.smilePictureBox.TabStop = false;
+            // 
+            // incorrect_panel
+            // 
+            this.incorrect_panel.BackColor = System.Drawing.Color.Transparent;
+            this.incorrect_panel.CausesValidation = false;
+            this.incorrect_panel.Controls.Add(this.label2);
+            this.incorrect_panel.Controls.Add(this.back_button);
+            this.incorrect_panel.Controls.Add(this.sadPictureBox);
+            this.incorrect_panel.ForeColor = System.Drawing.Color.Transparent;
+            this.incorrect_panel.Location = new System.Drawing.Point(0, 0);
+            this.incorrect_panel.Name = "incorrect_panel";
+            this.incorrect_panel.Size = new System.Drawing.Size(1050, 651);
+            this.incorrect_panel.TabIndex = 6;
+            this.incorrect_panel.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.label2.Location = new System.Drawing.Point(421, 345);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(211, 39);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Hibás válasz";
+            // 
+            // sadPictureBox
+            // 
+            this.sadPictureBox.Image = global::Oet1Quiz.Properties.Resources.sad;
+            this.sadPictureBox.ImageLocation = "";
+            this.sadPictureBox.InitialImage = null;
+            this.sadPictureBox.Location = new System.Drawing.Point(412, 77);
+            this.sadPictureBox.Name = "sadPictureBox";
+            this.sadPictureBox.Size = new System.Drawing.Size(234, 236);
+            this.sadPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.sadPictureBox.TabIndex = 3;
+            this.sadPictureBox.TabStop = false;
+            // 
+            // categories_panel
+            // 
+            this.categories_panel.Location = new System.Drawing.Point(320, 87);
+            this.categories_panel.Name = "categories_panel";
+            this.categories_panel.Size = new System.Drawing.Size(564, 552);
+            this.categories_panel.TabIndex = 5;
             // 
             // quit_btn
             // 
@@ -181,11 +264,71 @@ namespace Oet1Quiz
             this.button_start.UseVisualStyleBackColor = false;
             this.button_start.Click += new System.EventHandler(this.button_start_Click);
             // 
+            // next_button
+            // 
+            this.next_button.AnimationDuration = 1F;
+            this.next_button.BackColor = System.Drawing.Color.Transparent;
+            this.next_button.BackgroundColor = System.Drawing.Color.White;
+            this.next_button.DisabledColor = System.Drawing.Color.Gray;
+            this.next_button.FlatAppearance.BorderSize = 0;
+            this.next_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.next_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.next_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.next_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.next_button.Location = new System.Drawing.Point(412, 442);
+            this.next_button.Name = "next_button";
+            this.next_button.OnHoverBackgroundColor = System.Drawing.Color.Gray;
+            this.next_button.Radius = 5F;
+            this.next_button.Size = new System.Drawing.Size(234, 68);
+            this.next_button.TabIndex = 2;
+            this.next_button.Text = "Tovább";
+            this.next_button.TextColor = System.Drawing.Color.Black;
+            this.next_button.UseVisualStyleBackColor = false;
+            // 
+            // back_button
+            // 
+            this.back_button.AnimationDuration = 1F;
+            this.back_button.BackColor = System.Drawing.Color.Transparent;
+            this.back_button.BackgroundColor = System.Drawing.Color.White;
+            this.back_button.DisabledColor = System.Drawing.Color.Gray;
+            this.back_button.FlatAppearance.BorderSize = 0;
+            this.back_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.back_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.back_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.back_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.back_button.Location = new System.Drawing.Point(412, 442);
+            this.back_button.Name = "back_button";
+            this.back_button.OnHoverBackgroundColor = System.Drawing.Color.Gray;
+            this.back_button.Radius = 5F;
+            this.back_button.Size = new System.Drawing.Size(234, 68);
+            this.back_button.TabIndex = 3;
+            this.back_button.Text = "Viszza";
+            this.back_button.TextColor = System.Drawing.Color.Black;
+            this.back_button.UseVisualStyleBackColor = false;
+            // 
+            // roundedButton1
+            // 
+            this.roundedButton1.AnimationDuration = 0.3F;
+            this.roundedButton1.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButton1.BackgroundColor = System.Drawing.Color.White;
+            this.roundedButton1.DisabledColor = System.Drawing.Color.Gray;
+            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButton1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedButton1.Location = new System.Drawing.Point(400, 350);
+            this.roundedButton1.Name = "roundedButton1";
+            this.roundedButton1.OnHoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(141)))), ((int)(((byte)(153)))));
+            this.roundedButton1.Radius = 5F;
+            this.roundedButton1.Size = new System.Drawing.Size(235, 78);
+            this.roundedButton1.TabIndex = 4;
+            this.roundedButton1.Text = "Kiválosztott";
+            this.roundedButton1.TextColor = System.Drawing.Color.Black;
+            this.roundedButton1.UseVisualStyleBackColor = false;
+            // 
             // radioButton_question3
             // 
-            this.radioButton_question3.BackgroundOfPanel = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(42)))), ((int)(((byte)(46)))));
+            this.radioButton_question3.BackgroundOfPanel = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(35)))), ((int)(((byte)(130)))));
             this.radioButton_question3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.radioButton_question3.Location = new System.Drawing.Point(181, 239);
+            this.radioButton_question3.Location = new System.Drawing.Point(181, 230);
             this.radioButton_question3.Name = "radioButton_question3";
             this.radioButton_question3.Size = new System.Drawing.Size(311, 51);
             this.radioButton_question3.TabIndex = 2;
@@ -195,9 +338,9 @@ namespace Oet1Quiz
             // 
             // radioButton_question2
             // 
-            this.radioButton_question2.BackgroundOfPanel = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(42)))), ((int)(((byte)(46)))));
+            this.radioButton_question2.BackgroundOfPanel = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(35)))), ((int)(((byte)(130)))));
             this.radioButton_question2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.radioButton_question2.Location = new System.Drawing.Point(181, 174);
+            this.radioButton_question2.Location = new System.Drawing.Point(181, 140);
             this.radioButton_question2.Name = "radioButton_question2";
             this.radioButton_question2.Size = new System.Drawing.Size(311, 51);
             this.radioButton_question2.TabIndex = 1;
@@ -207,9 +350,9 @@ namespace Oet1Quiz
             // 
             // radioButton_question1
             // 
-            this.radioButton_question1.BackgroundOfPanel = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(42)))), ((int)(((byte)(46)))));
+            this.radioButton_question1.BackgroundOfPanel = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(35)))), ((int)(((byte)(130)))));
             this.radioButton_question1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.radioButton_question1.Location = new System.Drawing.Point(181, 117);
+            this.radioButton_question1.Location = new System.Drawing.Point(181, 52);
             this.radioButton_question1.Name = "radioButton_question1";
             this.radioButton_question1.Size = new System.Drawing.Size(311, 51);
             this.radioButton_question1.TabIndex = 0;
@@ -284,35 +427,18 @@ namespace Oet1Quiz
             this.resizeableCheckbox4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.resizeableCheckbox4.UseVisualStyleBackColor = true;
             // 
-            // roundedButton1
-            // 
-            this.roundedButton1.AnimationDuration = 0.3F;
-            this.roundedButton1.BackColor = System.Drawing.Color.Transparent;
-            this.roundedButton1.BackgroundColor = System.Drawing.Color.White;
-            this.roundedButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedButton1.Location = new System.Drawing.Point(803, 560);
-            this.roundedButton1.Name = "roundedButton1";
-            this.roundedButton1.OnHoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(141)))), ((int)(((byte)(153)))));
-            this.roundedButton1.Radius = 5F;
-            this.roundedButton1.Size = new System.Drawing.Size(235, 78);
-            this.roundedButton1.TabIndex = 4;
-            this.roundedButton1.Text = "Következő";
-            this.roundedButton1.TextColor = System.Drawing.Color.Black;
-            this.roundedButton1.UseVisualStyleBackColor = false;
-            this.roundedButton1.Click += new System.EventHandler(this.roundedButton1_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(42)))), ((int)(((byte)(46)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(35)))), ((int)(((byte)(130)))));
             this.ClientSize = new System.Drawing.Size(1050, 650);
             this.Controls.Add(this.mainMenu_panel);
+            this.Controls.Add(this.correct_panel);
+            this.Controls.Add(this.incorrect_panel);
             this.Controls.Add(this.question_Panel);
             this.ForeColor = System.Drawing.Color.White;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MainWindow";
             this.Text = "MainForm";
             this.mainMenu_panel.ResumeLayout(false);
@@ -320,7 +446,12 @@ namespace Oet1Quiz
             this.question_Panel.PerformLayout();
             this.radiobutton_q_panel.ResumeLayout(false);
             this.checkbox_q_panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.correct_panel.ResumeLayout(false);
+            this.correct_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.smilePictureBox)).EndInit();
+            this.incorrect_panel.ResumeLayout(false);
+            this.incorrect_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sadPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -328,7 +459,6 @@ namespace Oet1Quiz
         #endregion
         private System.Windows.Forms.Panel mainMenu_panel;
         private ZsoltCustomElements.RoundedButton button_start;
-        private ZsoltCustomElements.RoundedButton configure_btn;
         private ZsoltCustomElements.RoundedButton quit_btn;
         private System.Windows.Forms.Panel question_Panel;
         private ZsoltCustomElements.RoundedButton roundedButton1;
@@ -343,7 +473,16 @@ namespace Oet1Quiz
         private ZsoltCustomElements.ResizeableRadioButton radioButton_question1;
         private ZsoltCustomElements.ResizeableRadioButton radioButton_question3;
         private ZsoltCustomElements.ResizeableRadioButton radioButton_question2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Panel correct_panel;
+        private System.Windows.Forms.PictureBox smilePictureBox;
+        private System.Windows.Forms.Panel incorrect_panel;
+        private ZsoltCustomElements.RoundedButton next_button;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private ZsoltCustomElements.RoundedButton back_button;
+        private System.Windows.Forms.PictureBox sadPictureBox;
+        private ZsoltCustomElements.RoundedButton configure_btn;
+        private System.Windows.Forms.Panel categories_panel;
     }
 }
 

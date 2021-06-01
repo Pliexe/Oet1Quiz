@@ -4,12 +4,13 @@ using System.Collections;
 using System.ComponentModel;
 using System;
 using System.Threading.Tasks;
+using Oet1Quiz;
 
 namespace ZsoltCustomElements
 {
     public class ResizeableRadioButton : RadioButton
     {
-        public Color _backgroundOfPanel = Color.Red;
+        public Color _backgroundOfPanel = MainWindow.MainWindowBackgroundColor;
 
         public Color BackgroundOfPanel
         {
@@ -41,7 +42,7 @@ namespace ZsoltCustomElements
 
     class ResizeableCheckbox : CheckBox
     {
-        public Color _backgroundOfPanel = Color.Red;
+        public Color _backgroundOfPanel = MainWindow.MainWindowBackgroundColor;
 
         public Color BackgroundOfPanel
         {
