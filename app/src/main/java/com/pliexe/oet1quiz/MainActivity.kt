@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.children
 
 
@@ -17,6 +19,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        mainLoad()
+    }
+
+    fun checkChange(view: View) {
+        if(findViewById<Switch>(R.id.nightmodeSwitch).isChecked)
+        {
+            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES;
+            applicationContext.resources.configuration.uiMode = Configuration.UI_MODE_NIGHT_YES
+        } else {
+            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO;
+            applicationContext.resources.configuration.uiMode = Configuration.UI_MODE_NIGHT_NO
+        }
+    }
+
+    fun mainLoad() {
+        if(isNightMode()) findViewById<Switch>(R.id.nightmodeSwitch).isChecked = true
     }
 
     fun isNightMode(): Boolean {
@@ -28,8 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun start_Button(view: View) {
-
-        gameManager.StartGame(getRandomizedQuestions().subList(0, 3), this)
+        gameManager.StartGame(getRandomizedQuestions(), this)
     }
 
     fun next_button_clicked(view: View) {

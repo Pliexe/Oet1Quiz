@@ -9,6 +9,8 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.core.view.children
+import java.text.DecimalFormat
+import kotlin.math.floor
 
 class TextQuestion(
     val question: String,
@@ -82,9 +84,12 @@ class GameManager(val main: MainActivity) {
     var questions: MutableList<Any>? = null
     var points = 0
     var currentPosition = 0
+    var timeStarted = 0L
 
     fun StartGame(_questions: MutableList<Any>, main: MainActivity) {
         questions = _questions
+
+        timeStarted = System.currentTimeMillis()
 
         main.setContentView(R.layout.activity_quiz_question)
         SetupQuestion()
@@ -131,8 +136,24 @@ class GameManager(val main: MainActivity) {
         currentPosition++
 
         if(currentPosition >= questions!!.size) {
+            val end = System.currentTimeMillis()
+            val elapsedMS = end - timeStarted
+
+            var seconds = floor((elapsedMS / 1000).toDouble())
+            var minutes = floor(seconds / 60)
+
+            seconds -= minutes * 60
+
+            val hours = floor(minutes / 60)
+
+            minutes -= hours * 60
+
             main.setContentView(R.layout.activity_quiz_question_end)
             main.findViewById<TextView>(R.id.endPontSzam).text = "Pont szám: ${points}/${questions!!.size}"
+
+            val df = DecimalFormat("#")
+
+            main.findViewById<TextView>(R.id.endTime).text = "Eltelt idő: ${(if(hours < 10) "0" else "") + df.format(hours)}:${(if(minutes < 10) "0" else "") + df.format(minutes)}:${(if(seconds < 10) "0" else "") + df.format(seconds)}"
         }
         else {
             main.setContentView(R.layout.activity_quiz_question)
@@ -152,9 +173,7 @@ class GameManager(val main: MainActivity) {
         questions = null
         points = 0
         main.setContentView(R.layout.activity_main)
-        val test = main.findViewById<WebView>(R.id.webView)
-
-        test.loadUrl("https://starrynight-bot.xyz")
+        main.mainLoad()
     }
 
     fun ResetSelections() {

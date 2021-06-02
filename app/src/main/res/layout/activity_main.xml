@@ -18,4 +18,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
+
+    <Switch
+        android:id="@+id/nightmodeSwitch"
+        android:layout_width="190dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="148dp"
+        android:text="Night Mode"
+        android:textSize="25sp"
+        android:onClick="checkChange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
