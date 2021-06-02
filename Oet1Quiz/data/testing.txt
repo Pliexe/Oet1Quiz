@@ -1,0 +1,4 @@
+#OPTION:RANDOMIZE
+$hogy 1 vagy?|a|b|c|2
+$hogy 2 vagy?|a|b|c|3
+$hogy 3 vagy?|a|b|c|1

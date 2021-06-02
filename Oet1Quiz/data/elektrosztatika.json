@@ -1,0 +1,30 @@
+﻿{
+	"CategoryName": "Elektrosztatika",
+	"RandomizeOrder": true,
+	"RandomizeOnFail": false,
+	"PredetermenedQuestions": [
+		{
+			"question": "How are you?",
+			"imagePath": "images/test.png",
+			"anwser1": "test 1",
+			"anwser2": "test 2 correct",
+			"anwser3": "test 3 neutral",
+			"correct": 2,
+			"neutral": 3
+		}
+	],
+	"CorrectTextQuestions": [
+		{
+			"question": "q 1 t",
+			"correctAnwser": "1 t"
+		},
+		{
+			"question": "q 2 t",
+			"correctAnwser": "2 t"
+		},
+		{
+			"question": "q 3 t",
+			"correctAnwser": "3 t"
+		}
+	]
+}

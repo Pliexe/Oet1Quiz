@@ -1,0 +1,5 @@
+#OPTION:RANDOMIZE
+$NE MOND 1 vagy?|a|C|c|2
+awdagwerhyws44 
+$NE MOND 2 vagy?|a|b|C|3
+$NE MOND 3 vagy?|C|b|c|1

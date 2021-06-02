@@ -2,22 +2,36 @@
 using System.Linq;
 using System.Data.SqlClient;
 using System.Data;
+using System.Drawing;
+using System.Collections.Generic;
 
 namespace Oet1Quiz
 {
     public class Question {
-        public int id;
         public string question;
+        public Image image;
 
         public string anwser1;
         public string anwser2;
         public string anwser3;
+
+        public int? neutral;
 
         public int correct;
 
         public Question(string _quesion, string _anwser1, string _anwser2, string _anwser3, int _correct)
         {
             question = _quesion;
+            anwser1 = _anwser1;
+            anwser2 = _anwser2;
+            anwser3 = _anwser3;
+            correct = _correct;
+        }
+
+        public Question(string _quesion, Image _image, string _anwser1, string _anwser2, string _anwser3, int _correct)
+        {
+            question = _quesion;
+            image = _image;
             anwser1 = _anwser1;
             anwser2 = _anwser2;
             anwser3 = _anwser3;
@@ -33,24 +47,143 @@ namespace Oet1Quiz
         {
             return correct == selected;
         }
+
+        public bool isNeutral(int selected)
+        {
+            if (neutral == null) return false;
+            return neutral == selected;
+        }
     }
 
     public class QuestionManager
     {
-        public Question[] questions;
+        public List<Question> questions { get; private set; }
+
         public bool randomize;
         public bool randomizeOnFail;
         public string category;
 
-        public QuestionManager(Question[] _questions)
+        Random rng = new Random();
+
+        public QuestionManager(PredetermenedQuestion[] predetermenedQuestions, CorrectTextQuestion[] correctTextQuestions, CorrectImageQuestion[] correctImageQuestions)
         {
-            questions = _questions;
+            questions = new List<Question>();
+
+            if (predetermenedQuestions != null)
+            {
+                foreach (PredetermenedQuestion predetermenedQuestion in predetermenedQuestions)
+                {
+                    if (predetermenedQuestion.imagePath == null)
+                    {
+                        questions.Add(new Question(predetermenedQuestion.question, predetermenedQuestion.anwser1, predetermenedQuestion.anwser2, predetermenedQuestion.anwser3, predetermenedQuestion.correct) { neutral = predetermenedQuestion.neutral });
+                    }
+                    else
+                    {
+                        try
+                        {
+                            questions.Add(new Question(predetermenedQuestion.question, Image.FromFile(predetermenedQuestion.imagePath), predetermenedQuestion.anwser1, predetermenedQuestion.anwser2, predetermenedQuestion.anwser3, predetermenedQuestion.correct) { neutral = predetermenedQuestion.neutral });
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.ToString());
+                        }
+                    }
+                }
+            }
+
+            if (correctTextQuestions != null)
+            {
+                IEnumerable<string> anwsers = correctTextQuestions.Select(cTQ => cTQ.correctAnwser);
+
+                foreach (CorrectTextQuestion correctTextQuestion in correctTextQuestions)
+                {
+                    int correct = rng.Next(1, 4);
+
+                    string an1 = null;
+                    string an2 = null;
+                    string an3 = null;
+
+                    switch (correct)
+                    {
+                        case 1:
+                            an1 = correctTextQuestion.correctAnwser;
+                            break;
+                        case 2:
+                            an2 = correctTextQuestion.correctAnwser;
+                            break;
+                        case 3:
+                            an3 = correctTextQuestion.correctAnwser;
+                            break;
+                    }
+
+                    if (an1 == null) an1 = getRandom(anwsers, correctTextQuestion.correctAnwser);
+
+                    if (an2 == null)
+                    {
+                        if (an3 == null) an2 = getRandom(anwsers, correctTextQuestion.correctAnwser);
+                        else an2 = getRandom(anwsers, correctTextQuestion.correctAnwser, an1);
+                    }
+
+                    if (an3 == null) an3 = getRandom(anwsers, an2, an1);
+
+                    if (correctTextQuestion.imagePath == null)
+                        questions.Add(new Question(correctTextQuestion.question, an1, an2, an3, correct));
+                    else
+                    {
+                        try
+                        {
+                            questions.Add(new Question(correctTextQuestion.question, Image.FromFile(correctTextQuestion.imagePath), an1, an2, an3, correct));
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.ToString());
+                        }
+                    }
+                }
+            }
+
+            if(correctImageQuestions != null)
+            {
+                IEnumerable<string> paths = correctImageQuestions.Select(cIQ => cIQ.imagePath);
+
+                foreach(CorrectImageQuestion correctImageQuestion in correctImageQuestions)
+                {
+                    int corr = rng.Next(2);
+
+                    try
+                    {
+                        questions.Add(new Question(correctImageQuestion.question, corr == 0 ? Image.FromFile(correctImageQuestion.imagePath) : Image.FromFile(getRandom(paths, correctImageQuestion.imagePath)), "Igen", "Nem", "Nem tudom", corr) { neutral = 3 });
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.ToString());
+                    }
+                }
+            }
+        }
+
+        public T getRandom<T>(IEnumerable<T> enu, T notAllowed) where T : class
+        {
+            T rngElement = enu.ElementAt(rng.Next(enu.Count()));
+
+            if (rngElement == notAllowed) return getRandom(enu, notAllowed);
+
+            return rngElement;
+        }
+
+        public T getRandom<T>(IEnumerable<T> enu, T notAllowed, T notAllowed2) where T : class
+        {
+            T rngElement = enu.ElementAt(rng.Next(enu.Count()));
+
+            if (rngElement == notAllowed || rngElement == notAllowed2) return getRandom(enu, notAllowed, notAllowed2);
+
+            return rngElement;
         }
 
         public void Randomize()
         {
             Random rng = new Random();
-            for(int i = questions.Length - 1; i >= 1; i--)
+            for (int i = questions.Count - 1; i >= 1; i--)
             {
                 int r = rng.Next(i);
 
@@ -59,57 +192,5 @@ namespace Oet1Quiz
                 questions[r] = temp;
             }
         }
-
-
-        /*public delegate void ConnectedEventHandler(object sender, EventArgs args);
-        public event ConnectedEventHandler Connected;
-*/
-        /*protected virtual void OnConnected()
-        {
-            if(Connected != null)
-                Connected(this, EventArgs.Empty);
-        }
-
-        public Question[] questions;
-
-
-        string connectionString = @"Data Source=DESKTOP-DBSU0SC\SQLEXPRESS;Initial Catalog=elektro_tehnika_alapjai;Integrated Security=True";
-
-        public void Initialize()
-        {
-            SqlConnection connection = new SqlConnection(connectionString);
-
-            connection.Open();
-            if (connection.State == ConnectionState.Open)
-            {
-                Console.WriteLine("Connected to database");
-
-                OnConnected();
-
-                DataTable table = new DataTable();
-
-                new SqlDataAdapter("SELECT * FROM alapok1", connection).Fill(table);
-
-
-                questions = new Question[table.Rows.Count];
-
-                for (int i = 0; i < questions.Length; i++)
-                {
-                    *//*Console.WriteLine($"{table.Rows[i].ItemArray.ElementAt(0)}: {table.Rows[i].ItemArray.ElementAt(1)}, {table.Rows[i].ItemArray.ElementAt(5)}");*//*
-                    questions[i] = new Question(table.Rows[i].ItemArray.ElementAt(1).ToString(), table.Rows[i].ItemArray.ElementAt(2).ToString(), table.Rows[i].ItemArray.ElementAt(3).ToString(), table.Rows[i].ItemArray.ElementAt(4).ToString(), int.Parse(table.Rows[i].ItemArray.ElementAt(5).ToString())) { id = int.Parse(table.Rows[i].ItemArray.ElementAt(0).ToString()) };
-                }
-
-                connection.Close();
-
-                foreach (Question question in questions)
-                {
-                    Console.WriteLine($"{question.id}");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Unsuccesful connection to db");
-            }
-        }*/
     }
 }

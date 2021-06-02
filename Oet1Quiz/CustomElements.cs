@@ -27,6 +27,11 @@ namespace ZsoltCustomElements
             AutoSize = false;
         }
 
+        protected override void OnTextChanged(EventArgs e)
+        {
+            Width = TextRenderer.MeasureText(Text, Font).Width + Height + 50;
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.FillRectangle(new SolidBrush(_backgroundOfPanel), 0, 0, Width, Height);
@@ -34,7 +39,6 @@ namespace ZsoltCustomElements
             e.Graphics.FillEllipse(new SolidBrush(Color.White), 0, 0, Height, Height);
 
             if(Checked) e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(0, 60, 201)), 5, 5, Height - 10, Height - 10);
-
 
             e.Graphics.DrawString(Text, Font, new SolidBrush(Color.White), Height + 5, Height / 4);
         }
