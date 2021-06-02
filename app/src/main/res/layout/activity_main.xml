@@ -10,26 +10,22 @@
         android:id="@+id/start_button"
         android:layout_width="194dp"
         android:layout_height="68dp"
-        android:layout_marginTop="224dp"
-        android:text="Elinditás"
+        android:layout_marginTop="132dp"
         android:onClick="start_Button"
+        android:text="Elinditás"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
-    <Switch
-        android:id="@+id/nightmodeSwitch"
-        android:layout_width="190dp"
-        android:layout_height="67dp"
-        android:layout_marginBottom="148dp"
-        android:text="Night Mode"
-        android:textSize="25sp"
-        android:onClick="checkChange"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="344dp"
+        android:layout_height="477dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

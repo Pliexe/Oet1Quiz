@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import androidx.core.graphics.scale
 import androidx.core.view.children
 import java.text.DecimalFormat
 import kotlin.math.floor
@@ -55,13 +56,7 @@ class QuestionWithImage(
         val radio2 = main.findViewById<RadioButton>(R.id.radioButton2)
         val radio3 = main.findViewById<RadioButton>(R.id.radioButton3)
 
-        if(main.isNightMode()) {
-            val bitmap = main.getBitmap(questionImage)?.invertColors()
-            if(bitmap == null) imageView.setImageResource(questionImage)
-            else imageView.setImageBitmap(bitmap)
-        } else {
-            imageView.setImageResource(questionImage)
-        }
+        imageView.setImageResource(questionImage)
 
         if(imageView.visibility == View.GONE) imageView.visibility = View.VISIBLE
 
@@ -173,7 +168,6 @@ class GameManager(val main: MainActivity) {
         questions = null
         points = 0
         main.setContentView(R.layout.activity_main)
-        main.mainLoad()
     }
 
     fun ResetSelections() {

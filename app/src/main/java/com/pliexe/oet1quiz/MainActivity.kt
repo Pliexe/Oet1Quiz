@@ -19,27 +19,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        mainLoad()
-    }
-
-    fun checkChange(view: View) {
-        if(findViewById<Switch>(R.id.nightmodeSwitch).isChecked)
-        {
-            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES;
-            applicationContext.resources.configuration.uiMode = Configuration.UI_MODE_NIGHT_YES
-        } else {
-            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO;
-            applicationContext.resources.configuration.uiMode = Configuration.UI_MODE_NIGHT_NO
-        }
-    }
-
-    fun mainLoad() {
-        if(isNightMode()) findViewById<Switch>(R.id.nightmodeSwitch).isChecked = true
-    }
-
-    fun isNightMode(): Boolean {
-        return applicationContext.resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
     }
 
     fun getBitmap(id: Int): Bitmap? {

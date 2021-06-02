@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Oet1Quiz" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Customize your theme here. -->
+
+        <item name="android:statusBarColor">?attr/background</item>
+
+        <item name="android:background">@color/background</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="colorAccent">#11E11A</item>
+        <item name="radioButtonStyle">@style/Theme.Oet1Quiz.RadioButtonStyle</item>
+        <item name="buttonStyle">@style/Theme.Oet1Quiz.ButtonStyle</item>
+        <item name="colorButtonNormal">@color/white</item>
+
+    </style>
+</resources>
