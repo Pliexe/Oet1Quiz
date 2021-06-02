@@ -25,7 +25,7 @@ namespace Oet1Quiz
         {
             InitializeComponent();
 
-            gameManager = new GameManager(question_label, radioButton_question1, radioButton_question2, radioButton_question3, label1, backToMenu, endPanel, endPontSzam, pontSzam, smilePictureBox, roundedButton1, next_button, back_button, pictureBox1, correct_panel, incorrect_panel);
+            gameManager = new GameManager(question_label, radioButton_question1, radioButton_question2, radioButton_question3, timeLabel, label1, backToMenu, endPanel, endPontSzam, pontSzam, smilePictureBox, roundedButton1, next_button, back_button, pictureBox1, correct_panel, incorrect_panel);
             dataLoaderAndManager = new DataLoaderAndManager(categories_panel);
 
             dataLoaderAndManager.Loaded += () =>

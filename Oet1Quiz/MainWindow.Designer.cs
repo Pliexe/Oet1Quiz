@@ -29,6 +29,7 @@ namespace Oet1Quiz
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.mainMenu_panel = new System.Windows.Forms.Panel();
             this.categories_panel = new System.Windows.Forms.Panel();
             this.quit_btn = new ZsoltCustomElements.RoundedButton();
@@ -57,6 +58,7 @@ namespace Oet1Quiz
             this.back_button = new ZsoltCustomElements.RoundedButton();
             this.sadPictureBox = new System.Windows.Forms.PictureBox();
             this.endPanel = new System.Windows.Forms.Panel();
+            this.timeLabel = new System.Windows.Forms.Label();
             this.endPontSzam = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -443,6 +445,7 @@ namespace Oet1Quiz
             // 
             this.endPanel.BackColor = System.Drawing.Color.Transparent;
             this.endPanel.CausesValidation = false;
+            this.endPanel.Controls.Add(this.timeLabel);
             this.endPanel.Controls.Add(this.endPontSzam);
             this.endPanel.Controls.Add(this.label3);
             this.endPanel.Controls.Add(this.pictureBox2);
@@ -454,10 +457,20 @@ namespace Oet1Quiz
             this.endPanel.TabIndex = 6;
             this.endPanel.Visible = false;
             // 
+            // timeLabel
+            // 
+            this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.timeLabel.Location = new System.Drawing.Point(0, 416);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(1050, 25);
+            this.timeLabel.TabIndex = 6;
+            this.timeLabel.Text = "Eltartot idő: 69";
+            this.timeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // endPontSzam
             // 
             this.endPontSzam.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.endPontSzam.Location = new System.Drawing.Point(0, 414);
+            this.endPontSzam.Location = new System.Drawing.Point(0, 391);
             this.endPontSzam.Name = "endPontSzam";
             this.endPontSzam.Size = new System.Drawing.Size(1050, 25);
             this.endPontSzam.TabIndex = 5;
@@ -476,7 +489,7 @@ namespace Oet1Quiz
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Oet1Quiz.Properties.Resources.tada_animated;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(391, 116);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(267, 265);
@@ -512,8 +525,8 @@ namespace Oet1Quiz
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(35)))), ((int)(((byte)(130)))));
             this.ClientSize = new System.Drawing.Size(1050, 650);
             this.Controls.Add(this.mainMenu_panel);
-            this.Controls.Add(this.correct_panel);
             this.Controls.Add(this.endPanel);
+            this.Controls.Add(this.correct_panel);
             this.Controls.Add(this.incorrect_panel);
             this.Controls.Add(this.question_Panel);
             this.ForeColor = System.Drawing.Color.White;
@@ -571,6 +584,7 @@ namespace Oet1Quiz
         private ZsoltCustomElements.RoundedButton backToMenu;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label endPontSzam;
+        private System.Windows.Forms.Label timeLabel;
     }
 }
 

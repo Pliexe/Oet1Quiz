@@ -1,0 +1,51 @@
+﻿{
+	"CategoryName": "Elektrokinetika",
+	"RandomizeOrder": true,
+	"RandomizeOnFail": false,
+	"CorrectImageQuestions": [
+		{
+			"question": "Az elektromos áram erőssége:",
+			"imagePath": "images/eq12.png"
+		},
+		{
+			"question": "Az áram sűrűsége:",
+			"imagePath": "images/eq13.png"
+		},
+		{
+			"question": "Elektromos ellenállás:",
+			"imagePath": "images/eq14.png"
+		},
+		{
+			"question": "Elektromos vezetőképesség:",
+			"imagePath": "images/eq15.png"
+		},
+		{
+			"question": "Az elektromos ellenállás és a hőmérséklet összefüggése:",
+			"imagePath": "images/eq16.png"
+		},
+		{
+			"question": "A fajlagos ellenállás és a hőmérséklet összefüggése:",
+			"imagePath": "images/eq17.png"
+		},
+		{
+			"question": "Ohm törvénye:",
+			"imagePath": "images/eq18.png"
+		},
+		{
+			"question": "Joule törvénye:",
+			"imagePath": "images/eq19.png"
+		},
+		{
+			"question": "Az elektromos erők munkája:",
+			"imagePath": "images/eq20.png"
+		},
+		{
+			"question": "Eredő ellenállás soros kapcsolás esetében:",
+			"imagePath": "images/eq21.png"
+		},
+{
+			"question": "Eredő ellenállás párhuzamos kapcsolás esetében:",
+			"imagePath": "images/eq22.png"
+		}
+	]
+}

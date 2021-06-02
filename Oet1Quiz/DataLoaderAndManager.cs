@@ -104,8 +104,6 @@ namespace Oet1Quiz
                 {
                     Category category = JsonSerializer.Deserialize<Category>(File.ReadAllText(path));
 
-                    Console.WriteLine($"Randomize: {category.RandomizeOrder}");
-
                     category.PredetermenedQuestions = category.PredetermenedQuestions?.Where(x => IsValid(x)).ToArray();
                     category.CorrectTextQuestions = category.CorrectTextQuestions?.Where(x => IsValid(x)).ToArray();
                     category.CorrectImageQuestions = category.CorrectImageQuestions?.Where(x => IsValid(x)).ToArray();

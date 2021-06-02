@@ -146,20 +146,53 @@ namespace Oet1Quiz
             {
                 IEnumerable<string> paths = correctImageQuestions.Select(cIQ => cIQ.imagePath);
 
+                List<Question> temp = new List<Question>();
+
                 foreach(CorrectImageQuestion correctImageQuestion in correctImageQuestions)
                 {
-                    int corr = rng.Next(2);
-
                     try
                     {
-                        questions.Add(new Question(correctImageQuestion.question, corr == 0 ? Image.FromFile(correctImageQuestion.imagePath) : Image.FromFile(getRandom(paths, correctImageQuestion.imagePath)), "Igen", "Nem", "Nem tudom", corr) { neutral = 3 });
+                        temp.Add(new Question(correctImageQuestion.question, Image.FromFile(correctImageQuestion.imagePath) , "Igen", "Nem", "Nem tudom", 1) { neutral = 3 });
                     }
                     catch (Exception e)
                     {
                         Console.WriteLine(e.ToString());
                     }
                 }
+
+                questions = questions.Concat(randomizeImages(temp)).ToList();
             }
+        }
+
+        private List<Question> randomizeImages(List<Question> qs)
+        {
+            for (int i = 0; i < qs.Count / 2; i++)
+            {
+                if(qs[i].correct == 1)
+                {
+                    if(rng.Next(2) == 1)
+                    {
+                        qs[i].correct = 2;
+
+                        Question random = getRandom(qs, i + 1);
+                        random.correct = 2;
+
+                        Image oldImg = qs[i].image;
+
+                        qs[i].image = random.image;
+                        random.image = oldImg;
+                    }
+                }
+            }
+
+            return qs;
+        }
+
+        public T getRandom<T>(List<T> enu, int fromIndex) where T : class
+        {
+            T rngElement = enu.ElementAt(rng.Next(fromIndex, enu.Count()));
+
+            return rngElement;
         }
 
         public T getRandom<T>(IEnumerable<T> enu, T notAllowed) where T : class

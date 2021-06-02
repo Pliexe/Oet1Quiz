@@ -2,29 +2,50 @@
 	"CategoryName": "Elektrosztatika",
 	"RandomizeOrder": true,
 	"RandomizeOnFail": false,
-	"PredetermenedQuestions": [
+	"CorrectImageQuestions": [
 		{
-			"question": "How are you?",
-			"imagePath": "images/test.png",
-			"anwser1": "test 1",
-			"anwser2": "test 2 correct",
-			"anwser3": "test 3 neutral",
-			"correct": 2,
-			"neutral": 3
-		}
-	],
-	"CorrectTextQuestions": [
-		{
-			"question": "q 1 t",
-			"correctAnwser": "1 t"
+			"question": "Két pontszerű töltés közötti erő:",
+			"imagePath": "images/eq1.png"
 		},
 		{
-			"question": "q 2 t",
-			"correctAnwser": "2 t"
+			"question": "Arányossági együttható:",
+			"imagePath": "images/eq2.png"
 		},
 		{
-			"question": "q 3 t",
-			"correctAnwser": "3 t"
+			"question": "A pontszerű töltés körüli elektromos erőtér:",
+			"imagePath": "images/eq3.png"
+		},
+		{
+			"question": "Elektromos potenciál:",
+			"imagePath": "images/eq4.png"
+		},
+		{
+			"question": "Feszültség:",
+			"imagePath": "images/eq5.png"
+		},
+		{
+			"question": "Elektromos kapacitás:",
+			"imagePath": "images/eq6.png"
+		},
+		{
+			"question": "Síkkondenzátorok kapacitása:",
+			"imagePath": "images/eq7.png"
+		},
+		{
+			"question": "Síkkondenzátorban létrejött elektromos erőtér:",
+			"imagePath": "images/eq8.png"
+		},
+		{
+			"question": "Eredő kapacitás párhuzamos kapcsolás esetében:",
+			"imagePath": "images/eq9.png"
+		},
+		{
+			"question": "Eredő kapacitás soros kapcsolás esetében:",
+			"imagePath": "images/eq10.png"
+		},
+{
+			"question": "A mágneses erőtér energiája:",
+			"imagePath": "images/eq11.png"
 		}
 	]
 }

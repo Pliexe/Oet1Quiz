@@ -1,0 +1,273 @@
+﻿{
+	"CategoryName": "Mind!",
+	"RandomizeOrder": true,
+	"RandomizeOnFail": false,
+	"CorrectTextQuestions": [
+		{
+			"question": "Elektromos töltésmennyiség jelőlése",
+			"correctAnwser": "Q"
+		},
+		{
+			"question": "Elektromos erők jelőlése",
+			"correctAnwser": "F"
+		},
+		{
+			"question": "Elektromos erőtér jelőlése",
+			"correctAnwser": "E"
+		},
+		{
+			"question": "Elektromos potenciál jelőlése",
+			"correctAnwser": "V"
+		},
+		{
+			"question": "Elektromos feszültség jelőlése",
+			"correctAnwser": "U"
+		},
+		{
+			"question": "Elektromos munka jelőlése",
+			"correctAnwser": "A"
+		},
+		{
+			"question": "Elektromos kapacitás jelőlése",
+			"correctAnwser": "C"
+		},
+		{
+			"question": "Elektromos áram jelőlése",
+			"correctAnwser": "I"
+		},
+		{
+			"question": "Elektromos ellenállás jelőlése",
+			"correctAnwser": "R"
+		},
+		{
+			"question": "Elektromos teljesítmény jelőlése",
+			"correctAnwser": "P"
+		},
+		{
+			"question": "Elektromos potenciál jelőlése",
+			"correctAnwser": "V"
+		},
+		{
+			"question": "Mágneses erők jelőlése",
+			"correctAnwser": "F"
+		},
+		{
+			"question": "Mágneses indukció jelőlése",
+			"correctAnwser": "B"
+		},
+		{
+			"question": "Mágneses erőtér jelőlése",
+			"correctAnwser": "H"
+		},
+		{
+			"question": "Mágneses fluxus jelőlése",
+			"correctAnwser": "Φ"
+		},
+		{
+			"question": "Mágneses elenállás jelőlése",
+			"correctAnwser": "Rm"
+		},
+		{
+			"question": "Mágnesmotoros erő jelőlése",
+			"correctAnwser": "Fm"
+		},
+		{
+			"question": "Mágneses induktivitás jelőlése",
+			"correctAnwser": "L"
+		},
+		{
+			"question": "Indukált elektromotoros erő jelőlése",
+			"correctAnwser": "Ei"
+		},
+		{
+			"question": "Elektromos töltésmennyiség mértékegysége",
+			"correctAnwser": "[C]"
+		},
+		{
+			"question": "Elektromos erők mértékegysége",
+			"correctAnwser": "[N]"
+		},
+		{
+			"question": "Elektromos erőtér mértékegysége",
+			"correctAnwser": "[N/C]"
+		},
+		{
+			"question": "Elektromos potenciál mértékegysége",
+			"correctAnwser": "[V]"
+		},
+		{
+			"question": "Elektromos feszültség mértékegysége",
+			"correctAnwser": "[V]"
+		},
+		{
+			"question": "Elektromos munka mértékegysége",
+			"correctAnwser": "[J]"
+		},
+		{
+			"question": "Elektromos kapacitás mértékegysége",
+			"correctAnwser": "[F]"
+		},
+		{
+			"question": "Elektromos áram mértékegysége",
+			"correctAnwser": "[A]"
+		},
+		{
+			"question": "Elektromos ellenállás mértékegysége",
+			"correctAnwser": "[Ω]"
+		},
+		{
+			"question": "Elektromos teljesítmény mértékegysége",
+			"correctAnwser": "[W]"
+		},
+		{
+			"question": "Elektromos potenciál mértékegysége",
+			"correctAnwser": "[V]"
+		},
+		{
+			"question": "Mágneses erők mértékegysége",
+			"correctAnwser": "[N]"
+		},
+		{
+			"question": "Mágneses indukció mértékegysége",
+			"correctAnwser": "[T]"
+		},
+		{
+			"question": "Mágneses erőtér mértékegysége",
+			"correctAnwser": "[A/m]"
+		},
+		{
+			"question": "Mágneses fluxus mértékegysége",
+			"correctAnwser": "[Wb]"
+		},
+		{
+			"question": "Mágneses elenállás mértékegysége",
+			"correctAnwser": "[A/Wb]"
+		},
+		{
+			"question": "Mágnesmotoros erő mértékegysége",
+			"correctAnwser": "[A]"
+		},
+		{
+			"question": "Mágneses induktivitás mértékegysége",
+			"correctAnwser": "[H]"
+		},
+		{
+			"question": "Indukált elektromotoros erő mértékegysége",
+			"correctAnwser": "[V]"
+		}
+	],
+	"CorrectImageQuestions": [
+		{
+			"question": "Két pontszerű töltés közötti erő:",
+			"imagePath": "images/eq1.png"
+		},
+		{
+			"question": "Arányossági együttható:",
+			"imagePath": "images/eq2.png"
+		},
+		{
+			"question": "A pontszerű töltés körüli elektromos erőtér:",
+			"imagePath": "images/eq3.png"
+		},
+		{
+			"question": "Elektromos potenciál:",
+			"imagePath": "images/eq4.png"
+		},
+		{
+			"question": "Feszültség:",
+			"imagePath": "images/eq5.png"
+		},
+		{
+			"question": "Elektromos kapacitás:",
+			"imagePath": "images/eq6.png"
+		},
+		{
+			"question": "Síkkondenzátorok kapacitása:",
+			"imagePath": "images/eq7.png"
+		},
+		{
+			"question": "Síkkondenzátorban létrejött elektromos erőtér:",
+			"imagePath": "images/eq8.png"
+		},
+		{
+			"question": "Eredő kapacitás párhuzamos kapcsolás esetében:",
+			"imagePath": "images/eq9.png"
+		},
+		{
+			"question": "Eredő kapacitás soros kapcsolás esetében:",
+			"imagePath": "images/eq10.png"
+		},
+		{
+			"question": "A mágneses erőtér energiája:",
+			"imagePath": "images/eq11.png"
+		},
+		{
+			"question": "Az elektromos áram erőssége:",
+			"imagePath": "images/eq12.png"
+		},
+		{
+			"question": "Az áram sűrűsége:",
+			"imagePath": "images/eq13.png"
+		},
+		{
+			"question": "Elektromos ellenállás:",
+			"imagePath": "images/eq14.png"
+		},
+		{
+			"question": "Elektromos vezetőképesség:",
+			"imagePath": "images/eq15.png"
+		},
+		{
+			"question": "Az elektromos ellenállás és a hőmérséklet összefüggése:",
+			"imagePath": "images/eq16.png"
+		},
+		{
+			"question": "A fajlagos ellenállás és a hőmérséklet összefüggése:",
+			"imagePath": "images/eq17.png"
+		},
+		{
+			"question": "Ohm törvénye:",
+			"imagePath": "images/eq18.png"
+		},
+		{
+			"question": "Joule törvénye:",
+			"imagePath": "images/eq19.png"
+		},
+		{
+			"question": "Az elektromos erők munkája:",
+			"imagePath": "images/eq20.png"
+		},
+		{
+			"question": "Eredő ellenállás soros kapcsolás esetében:",
+			"imagePath": "images/eq21.png"
+		},
+		{
+			"question": "Eredő ellenállás párhuzamos kapcsolás esetében:",
+			"imagePath": "images/eq22.png"
+		},
+		{
+			"question": "Általános Ohm - törvény:",
+			"imagePath": "images/eq23.png"
+		},
+		{
+			"question": "A generátor teljesítménye:",
+			"imagePath": "images/eq24.png"
+		},
+		{
+			"question": "A generátor Joule – féle vesztesége:",
+			"imagePath": "images/eq25.png"
+		},
+		{
+			"question": "Az áramkör hatásfoka:",
+			"imagePath": "images/eq26.png"
+		},
+		{
+			"question": "Kirchhoff első törvénye:",
+			"imagePath": "images/eq27.png"
+		},
+		{
+			"question": "Kirchhoff második törvénye:",
+			"imagePath": "images/eq28.png"
+		}
+	]
+}

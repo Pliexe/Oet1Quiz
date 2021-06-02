@@ -1,0 +1,31 @@
+﻿{
+	"CategoryName": "Áramkörök",
+	"RandomizeOrder": true,
+	"RandomizeOnFail": false,
+	"CorrectImageQuestions": [
+		{
+			"question": "Általános Ohm - törvény:",
+			"imagePath": "images/eq23.png"
+		},
+		{
+			"question": "A generátor teljesítménye:",
+			"imagePath": "images/eq24.png"
+		},
+		{
+			"question": "A generátor Joule – féle vesztesége:",
+			"imagePath": "images/eq25.png"
+		},
+		{
+			"question": "Az áramkör hatásfoka:",
+			"imagePath": "images/eq26.png"
+		},
+		{
+			"question": "Kirchhoff első törvénye:",
+			"imagePath": "images/eq27.png"
+		},
+		{
+			"question": "Kirchhoff második törvénye:",
+			"imagePath": "images/eq28.png"
+		}
+	]
+}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using ZsoltCustomElements;
 
@@ -23,6 +24,7 @@ namespace Oet1Quiz
         Label pontSzam;
         Label endPontSzam;
         Label correctQuestionLabel;
+        Label timeElapsedLabel;
 
         QuestionManager questionManager = null;
 
@@ -30,9 +32,14 @@ namespace Oet1Quiz
 
         int pont = 0;
 
-        public GameManager(Label _questionLabel, ResizeableRadioButton _anwser1, ResizeableRadioButton _anwser2, ResizeableRadioButton _anwser3, Label _correctQuestionLabel, Button backToMenu, Panel _endGamePanel, Label _endPontSzam, Label _pontSzam, PictureBox _smilePictureBox, Button _giveAnwserButton, Button _nextCorrBtn, Button _nextIncBtn, PictureBox _pictureBox, Panel _correctPanel, Panel _incorrectPanel)
+        Stopwatch clock = new Stopwatch();
+
+        public GameManager(Label _questionLabel, ResizeableRadioButton _anwser1, ResizeableRadioButton _anwser2, ResizeableRadioButton _anwser3, Label _timeElapsedLabel, Label _correctQuestionLabel, Button backToMenu, Panel _endGamePanel, Label _endPontSzam, Label _pontSzam, PictureBox _smilePictureBox, Button _giveAnwserButton, Button _nextCorrBtn, Button _nextIncBtn, PictureBox _pictureBox, Panel _correctPanel, Panel _incorrectPanel)
         {
+            clock.Restart();
+
             questionLabel = _questionLabel;
+            timeElapsedLabel = _timeElapsedLabel;
 
             anwser1 = _anwser1;
             anwser2 = _anwser2;
@@ -141,8 +148,10 @@ namespace Oet1Quiz
 
             if (currentQuestion >= questionManager.questions.Count)
             {
-
+                clock.Stop();
                 endPontSzam.Text = $"Pont szám: {pont}/{questionManager.questions.Count}";
+
+                timeElapsedLabel.Text = $"Eltartot idő: {(int)Math.Floor(clock.Elapsed.TotalHours)}:{(clock.Elapsed.Minutes < 10 ? "0" : "")}{clock.Elapsed.Minutes}:{(clock.Elapsed.Seconds < 10 ? "0" : "")}{clock.Elapsed.Seconds}";
                 endGamePanel.Visible = true;
                 return;
             }
