@@ -1,5 +1,7 @@
 package com.pliexe.oet1quiz
 
+import android.util.Log
+
 class CorrectQuestion(
     val question: String,
     val correctAnwser: String,
@@ -107,11 +109,13 @@ fun getRandomizedQuestions(): MutableList<Any> {
 
             if(anw2 == null)
             {
-                if(anw3 == null) anw2 = getRandomAnwser(anwsersWord, it.correctAnwser)
-                else anw2 = getRandomAnwser(anwsersWord, it.correctAnwser, anw1)
+                anw2 = if(anw3 == null) getRandomAnwser(anwsersWord, it.correctAnwser)
+                else getRandomAnwser(anwsersWord, it.correctAnwser, anw1)
             }
 
             if(anw3 == null) anw3 = getRandomAnwser(anwsersWord, anw2, anw1)
+
+            Log.d("AFTER", "${anw1}, ${anw2}, ${anw3}. $correct")
 
             TextQuestion(it.question, anw1, anw2, anw3, correct)
         } else {

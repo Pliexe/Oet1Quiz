@@ -21,10 +21,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun getBitmap(id: Int): Bitmap? {
-        return BitmapFactory.decodeResource(applicationContext.resources, id)
-    }
-
     fun start_Button(view: View) {
         gameManager.StartGame(getRandomizedQuestions(), this)
     }
