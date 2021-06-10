@@ -1,11 +1,21 @@
 * {
     margin: 0;
     padding: 0;
-    color: white;
+    color: rgb(233, 227, 227);
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
+}
+
+.downloadDiv {
+    margin-top: 30vh;
+}
+
+@media screen and (max-width: 600px) {
+    .downloadDiv {
+        margin-top: 5vh;
+    }
 }
 
 .downloads {
@@ -26,7 +36,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 30px;
+    height: 40px;
     font-size: large;
     transition: all .2s ease-in-out;
 }
@@ -36,10 +46,39 @@
     cursor: pointer;
 }
 
+.portfolio {
+    margin-top: 15px;
+    text-decoration: none;
+    background-color: green;
+    font-size: large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 270px;
+    border-radius: 15px;
+    transition: all .2s ease-in-out;
+}
+
+.portfolio:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.introLogo {
+    background-color: rgb(61, 37, 148);
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    margin-bottom: 50px;
+    box-shadow: 0px 0px 10px 10px rgb(61, 37, 148);
+}
+
 body {
     background-color: rgb(11, 16, 39);
     padding: 15vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
